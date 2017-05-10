@@ -39,6 +39,13 @@ input {
   text-align: left;
   color: #929497;
 }
+
+.high-low input {
+  display: inline-block;
+  width: 20%;
+  margin: 5% 1%;
+}
+
 input:focus {
   outline-color: #eb008b;
   outline-style: ;
@@ -48,6 +55,14 @@ input:focus {
 input::placeholder {
   color: #d0d2d3;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
 button {
   background-color: #929497;
   color: #fff;
@@ -58,8 +73,14 @@ button {
   margin: 0 1.5%;
 }
 
+#prm-btn {
+  display: block;
+  margin: auto;
+  width: 40%;
+}
+
 button:disabled {
-  background-color: #18f514;
+  background-color: #d0d2d3;
   color: #fff;
   outline: none;
 }

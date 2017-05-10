@@ -1,4 +1,6 @@
-//store things in variables
+
+
+//===========store things in variables===========
 
 //input from user
 var inputBox = document.getElementById('inptbx');
@@ -13,7 +15,7 @@ var clearBtn = document.getElementById('clrbtn');
 var intro = document.getElementById('your-guess')
 
 //output number
-var outputNum = document.querySelector('#num-output');
+var outputNum = document.getElementById('num-output');
 
 //feedback sentence
 var feedBack = document.getElementById('fdbck');
@@ -21,7 +23,28 @@ var feedBack = document.getElementById('fdbck');
 //reset button
 var resetBtn = document.getElementById('rstbtn');
 
+//user input min range
+var minRange = document.getElementById('min-range');
+
+var min = 1;
+
+//user input max range
+var maxRange = document.getElementById('max-range');
+
+var max = 100;
+
+//paramter button
+var paramBtn = document.getElementById('prm-btn');
+
+//is assigned in random number function
 var ranNumber;
+
+
+
+
+//=============Event Listeners===============
+
+
 
 
 
@@ -31,36 +54,47 @@ window.addEventListener('load', function() {
 })
 
 
+paramBtn.addEventListener('click', function () {
+ minMax();
+ getRanNum(min, max);
+})
+
 //on keyup check to see if number entered is within min/max range
 inputBox.addEventListener('keyup', function() {
-
+  minMaxEval();
+  toggleClear();
 })
 
 
-//add event listener to guess-button to run function that compares
+//on guessBtn click run function that compares
 guessBtn.addEventListener('click', function() {
   evalInput();
   inputBox.value = '';
+  toggleClear();
+  minMaxEval();
 });
 
 
 //make clear button clear input field
 clearBtn.addEventListener('click', function() {
   inputBox.value = '';
-  console.log(inputBox.value)
+  toggleClear();
+  minMaxEval();
 });
 
 
 //make reset button reset all inputs and generate new random number
 resetBtn.addEventListener('click', function() {
 zeroState();
+minRange.defaultValue = 1;
+minRange.placeholder = 1;
+maxRange.defaultValue = 100;
+maxRange.placeholder = 100;
 });
 
 
 
-// inputBox.addEventListener('input', function() {
-//   disBut();
-// });
+
 
 //=============Functions============
 
@@ -70,18 +104,22 @@ function zeroState() {
   intro.innerText = "Feelin' lucky punk?";
   outputNum.innerText = '1-100';
   feedBack.innerText = 'Make your best guess...';
+  minRange.defaultValue = 1;
+  minRange.placeholder = 1;
+  maxRange.defaultValue = 100;
+  maxRange.placeholder = 100;
   getRanNum(1, 100);
   console.log()
 };
 
 
 
-// get random number function
+//get random number function
 function getRanNum(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   ranNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-  console.log("I am a RN " + ranNumber);
+  console.log("RanNum is " + ranNumber);
 }
 
 
@@ -106,29 +144,50 @@ function compare() {
 
 
 
-//Evaluates input in see if valid
+//Evaluates input to see if valid
 function evalInput() {
   var parsdInpt = parseInt(inputBox.value);
-  if ((parsdInpt < 1) || (parsdInpt > 100) || (isNaN(parsdInpt))) {
-    //display message saying out of range too low
+  if ((parsdInpt < min) || (parsdInpt > max) || (isNaN(parsdInpt))) {
     outputNum.innerText = 'Invalid Entry';
-    feedBack.innerText = 'Enter a number 1-100';
+    feedBack.innerText = 'Enter a number within your range';
     intro.innerText = '';
   } else {
-    //run compare
     compare();
   }
   }
 
 
 
-//if input field is empty disable button; same for clear button
-// function disBut() {
-//   if (inputBox.value === '') {
-//     guessBtn.disabled = true;
-//     clearBtn.disabled = true;
-//   } else {
-//     guessBtn.disabled = false;
-//     clearBtn.disabled = false;
-//   }
-// }
+//input only accepts numbers within min/max
+function minMaxEval() {
+  var parsdInpt = parseInt(inputBox.value);
+  console.log(parsdInpt)
+  if ((parsdInpt < min) || (parsdInpt > max) || isNaN(parsdInpt)) {
+    guessBtn.disabled = true;
+  } else {
+    guessBtn.disabled = false;
+  }
+}
+
+
+
+//toggles clear button when input box is empty
+function toggleClear() {
+  if (inputBox.value !== "") {
+    clearBtn.disabled = false;
+  } else {
+    clearBtn.disabled = true;
+  }
+}
+
+
+
+//sets the min/max value to user input
+function minMax() {
+  min = parseInt(minRange.value);
+  max = parseInt(maxRange.value);
+}
+
+
+
+//
