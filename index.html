@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Number Guesser</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+  </head>
+
+  <body>
+    <header>
+      <h1>Number<span>Guesser</span></h1>
+    </header>
+
+    <section>
+
+      <!-- Phase III input
+      <article class="high/low">
+        <input id="low-range" type="text" placeholder="Choose a low number">
+        <input id="high-range" type="text" placeholder="Choose a high number">
+      </article> -->
+
+      <article class="get">
+        <input id="inptbx" type="text" name="numberguess" placeholder="Enter your guess">
+        <button id="gssbtn" type="button" name="gssbtn" >Guess</button>
+        <button id="clrbtn" type="button" name="clrbtn" >Clear</button>
+      </article>
+
+      <article class="give">
+        <!-- The output from javascript will go below, for now its a placeholder-->
+        <p id="your-guess">Feelin' lucky punk?</p>
+        <h2 id="num-output">1-100</h2>
+        <p id="fdbck">Make your best guess...</p>
+        <!-- The output from javascript will go above, for now its a placeholder -->
+        <button id="rstbtn" type="reset" name="button">Reset</button>
+      </article>
+
+    </section>
+
+    <script type="text/javascript" src="./script.js">
+    </script>
+  </body>
+
+</html>
