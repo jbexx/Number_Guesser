@@ -34,14 +34,15 @@ function zeroState() {
   intro.innerText = "Feelin' lucky punk?";
   outputNum.innerText = "1-100";
   feedBack.innerText = "Make your best guess...";
-  inputBox.addEventListener('input', function() {
-    disBut();
-  })
+};
+
   getRanNum(1, 100);
   console.log("ranNum " + ranNumber);
-}
 
 
+// inputBox.addEventListener('input', function() {
+//   disBut();
+// });
 //on keyup check to see if number entered is within min/max range
 // inputBox.addEventListener('keyup', function() {
 //   if (inputBox.value > 1) {
@@ -74,8 +75,8 @@ function compare() {
   console.log('prsdInt: ', parsdInpt)
   if(parseInt(inputBox.value) === ranNumber) {
     outputNum.innerText = 'BOOM!';
-    feedBack.innerText = "";
-    intro.innerText = "";
+    feedBack.innerText = '';
+    intro.innerText = '';
   } else if(parseInt(inputBox.value) > ranNumber) {
     intro.innerText = "Your last guess was"
     feedBack.innerText = 'That is too high';
@@ -89,14 +90,16 @@ function compare() {
 
 //add event listener to guess-button to run function that compares
 guessBtn.addEventListener('click', function() {
+  console.log('do I work');
   compare();
-  inputBox.value = "";
+  inputBox.value = '';
 });
 
 
 //make clear button clear input field
-clearBtn.addEventListener('click', function() { inputBox.value = '';
-console.log(inputBox.value)
+clearBtn.addEventListener('click', function() {
+  inputBox.value = '';
+  console.log(inputBox.value)
 });
 
 
@@ -107,12 +110,12 @@ zeroState();
 
 
 //if input field is empty disable button; same for clear button
-function disBut() {
-  if (inputBox.value === '') {
-    guessBtn.disabled = true;
-    clearBtn.disabled = true;
-  } else {
-    guessBtn.disabled = false;
-    clearBtn.disabled = false;
-  }
-}
+// function disBut() {
+//   if (inputBox.value === '') {
+//     guessBtn.disabled = true;
+//     clearBtn.disabled = true;
+//   } else {
+//     guessBtn.disabled = false;
+//     clearBtn.disabled = false;
+//   }
+// }
