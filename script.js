@@ -53,10 +53,11 @@ window.addEventListener('load', function() {
   zeroState();
 })
 
-
-paramBtn.addEventListener('click', function () {
+paramBtn.addEventListener('click', function() {
  minMax();
  getRanNum(min, max);
+ outputNum.innerText = minRange.value + "-" + maxRange.value;
+ // minMaxSwitch();
 })
 
 //on keyup check to see if number entered is within min/max range
@@ -85,11 +86,9 @@ clearBtn.addEventListener('click', function() {
 
 //make reset button reset all inputs and generate new random number
 resetBtn.addEventListener('click', function() {
+minRange.value = 1;
+maxRange.value = 100;
 zeroState();
-minRange.defaultValue = 1;
-minRange.placeholder = 1;
-maxRange.defaultValue = 100;
-maxRange.placeholder = 100;
 });
 
 
@@ -105,9 +104,7 @@ function zeroState() {
   outputNum.innerText = '1-100';
   feedBack.innerText = 'Make your best guess...';
   minRange.defaultValue = 1;
-  minRange.placeholder = 1;
   maxRange.defaultValue = 100;
-  maxRange.placeholder = 100;
   getRanNum(1, 100);
   console.log()
 };
@@ -133,6 +130,7 @@ function compare() {
     outputNum.innerText = 'BOOM!';
     feedBack.innerText = '';
     intro.innerText = '';
+
   } else if(parseInt(inputBox.value) > ranNumber) {
     intro.innerText = 'Your last guess was';
     feedBack.innerText = 'That is too high';
@@ -155,6 +153,22 @@ function evalInput() {
     compare();
   }
   }
+
+
+
+//if min > max then alert user
+//   function minMaxSwitch() {
+//     var minNum = minRange.value;
+//     var maxNum = maxRange.value;
+// console.log(minNum + maxNum)
+//     if (minNum >= maxNum) {
+//       outputNum.innerText = 'Invalid Entry';
+//       feedBack.innerText = 'Your min is higher than your max, Turd Furgson';
+//       intro.innerText = '';
+//     }
+//     }
+
+
 
 
 
@@ -187,6 +201,7 @@ function minMax() {
   min = parseInt(minRange.value);
   max = parseInt(maxRange.value);
 }
+
 
 
 
