@@ -111,6 +111,16 @@ function zeroState() {
   getRanNum(1, 100);
 };
 
+function newPhase() {
+  inputBox.value === '';
+  intro.innerText = "Feelin' lucky again punk?";
+  feedBack.innerText = "Go ahead, make my day...";
+  var minPlus = parseInt(min) - 10;
+  var maxPlus = parseInt(max) + 10;
+  outputNum.innerText = minPlus + ' - ' + maxPlus;
+  getRanNum(minPlus, maxPlus);
+  console.log(minPlus + " - " + maxPlus)
+}
 
 
 //get random number function
@@ -128,14 +138,15 @@ function compare() {
   var parsdInpt = parseInt(inputBox.value);
   outputNum.innerText = inputBox.value;
   console.log('prsdInt: ', parsdInpt)
-  if(parseInt(inputBox.value) === ranNumber) {
+  if(parsdInpt === ranNumber) {
     outputNum.innerText = 'BOOM!';
     feedBack.innerText = '';
     intro.innerText = '';
-  } else if(parseInt(inputBox.value) > ranNumber) {
+    setTimeout(newPhase, 3000);
+  } else if(parsdInpt > ranNumber) {
     intro.innerText = 'Your last guess was';
     feedBack.innerText = 'That is too high';
-  } else if(parseInt(inputBox.value) < ranNumber) {
+  } else if(parsdInpt < ranNumber) {
     intro.innerText = 'Your last guess was';
     feedBack.innerText = 'That is too low';
   }
@@ -172,11 +183,9 @@ function evalInput() {
 
 
 
-
 //input only accepts numbers within min/max
 function minMaxEval() {
   var parsdInpt = parseInt(inputBox.value);
-  console.log(parsdInpt)
   if ((parsdInpt < min) || (parsdInpt > max) || isNaN(parsdInpt)) {
     guessBtn.disabled = true;
   } else {
@@ -188,7 +197,7 @@ function minMaxEval() {
 
 //toggles clear button when input box is empty
 function toggleClear() {
-  if (inputBox.value !== "") {
+  if (inputBox.value !== '') {
     clearBtn.disabled = false;
   } else {
     clearBtn.disabled = true;
