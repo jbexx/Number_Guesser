@@ -93,34 +93,19 @@ function zeroState() {
   getRanNum(1, 100);
 };
 
-//on game when newPhase runs, sets new params
-function newPhase() {
-  intro.innerText = "Feelin' lucky again punk?";
-  feedBack.innerText = "Go ahead, make my day...";
-  var minPlus = parseInt(min) - 10;
-  var maxPlus = parseInt(max) + 10;
-  minRange.value = minPlus;
-  maxRange.value = maxPlus;
-  outputNum.innerText = minPlus + '  -  ' + maxPlus;
-  getRanNum(minPlus, maxPlus);
-  console.log(minPlus + " - " + maxPlus)
-  min = minPlus;
-  max = maxPlus;
-}
-
 //get random number function
 function getRanNum(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   ranNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-  console.log("Random Number is " + ranNumber);
+  console.log("Random Number: " + ranNumber);
 }
 
 //function that compares user input to random number and then output display feedback sentence based on comparison
 function compare() {
   var parsdInpt = parseInt(inputBox.value);
   outputNum.innerText = inputBox.value;
-  console.log('prsdInt: ', parsdInpt)
+  console.log('user input: ', parsdInpt)
   if(parsdInpt === ranNumber) {
     outputNum.innerText = 'BOOM!';
     feedBack.innerText = '';
@@ -135,17 +120,20 @@ function compare() {
   }
 }
 
-//Evaluates input to see if valid
-// function evalInput() {
-//   var parsdInpt = parseInt(inputBox.value);
-//   if ((parsdInpt < min) || (parsdInpt > max) || (isNaN(parsdInpt))) {
-//     outputNum.innerText = 'Invalid Entry';
-//     feedBack.innerText = 'Enter a number within your range';
-//     intro.innerText = '';
-//   } else {
-//     compare();
-//   }
-//   }
+//on game when newPhase runs, sets new params
+function newPhase() {
+  intro.innerText = "Feelin' lucky again punk?";
+  feedBack.innerText = "Go ahead, make my day...";
+  var minPlus = parseInt(min) - 10;
+  var maxPlus = parseInt(max) + 10;
+  minRange.value = minPlus;
+  maxRange.value = maxPlus;
+  outputNum.innerText = minPlus + ' - ' + maxPlus;
+  getRanNum(minPlus, maxPlus);
+  console.log(minPlus + ' - ' + maxPlus)
+  min = minPlus;
+  max = maxPlus;
+}
 
 //input only accepts numbers within min/max
 function minMaxEval() {
