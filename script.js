@@ -4,7 +4,7 @@
 //input from user
 var inputBox = document.getElementById('inptbx');
 //guess button
-var guessBtn = document.getElementById('gssbtn');
+var guessBtn = document.getElementById('guessbtn');
 //clear button
 var clearBtn = document.getElementById('clrbtn');
 //intro sentence
@@ -14,7 +14,7 @@ var outputNum = document.getElementById('num-output');
 //feedback sentence
 var feedBack = document.getElementById('fdbck');
 //reset button
-var resetBtn = document.getElementById('rstbtn');
+var resetBtn = document.getElementById('resetbtn');
 //user input min range
 var minRange = document.getElementById('min-range');
 //set min
@@ -24,7 +24,7 @@ var maxRange = document.getElementById('max-range');
 //set max
 var max = 100;
 //paramter button
-var paramBtn = document.getElementById('prm-btn');
+var paramBtn = document.getElementById('param-btn');
 //is assigned in random number function
 var ranNumber;
 

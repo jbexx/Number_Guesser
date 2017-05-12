@@ -8,30 +8,30 @@
 
   <body>
     <header>
-      <h1>Number<span>Guesser</span></h1>
+      <h1>Number<span class="thin-letters">Guesser</span></h1>
     </header>
 
     <section>
-      <article class="high-low">
+      <article class="min-max">
         <input id="min-range" type="number" placeholder="min">
         <input id="max-range" type="number" placeholder="max">
-        <button id="prm-btn" type="button" name="setparams">Set Parameters</button>
+        <button id="param-btn" type="button" name="setparams">Set Parameters</button>
       </article>
 
-      <article class="get">
+      <article class="get-input">
         <input id="inptbx" type="number" name="numberguess" placeholder="Enter your guess">
-        <button id="gssbtn" type="button" name="gssbtn" disabled="true">Guess</button>
+        <button id="guessbtn" type="button" name="guessbtn" disabled="true">Guess</button>
         <button id="clrbtn" type="button" name="clrbtn" disabled="true">Clear</button>
       </article>
 
-      <article class="give">
+      <article class="give-feedback">
         <p id="your-guess">Feelin' lucky punk?</p>
         <h2 id="num-output">1-100</h2>
         <p id="fdbck">Make your best guess...</p>
       </article>
 
       <article class="reset">
-        <button id="rstbtn" type="reset" name="button">Reset</button>
+        <button id="resetbtn" type="reset" name="button">Reset</button>
       </article>
     </section>
 

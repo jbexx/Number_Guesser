@@ -22,7 +22,7 @@ h1 {
   margin: 1.5% 1.3% 1.5% auto;
 }
 
-span {
+.thin-letters {
   color: #e6e7e8;
   font-weight: 300;
   margin: 0 3%;
@@ -40,7 +40,7 @@ input {
   width: 45%;
 }
 
-.high-low input {
+.min-max input {
   display: inline-block;
   margin: 5% 1.5%;
   width: 20%;
@@ -48,7 +48,6 @@ input {
 
 input:focus {
   outline-color: #eb008b;
-  outline-style: ;
   outline-width: thick;
 }
 
@@ -72,7 +71,7 @@ button {
   width: 20%;
 }
 
-#prm-btn {
+#param-btn {
   display: block;
   margin: auto;
   width: 45%;
@@ -99,7 +98,7 @@ p {
   margin: 0;
 }
 
-.give {
+.give-feedback {
   margin-top: 5%;
 }
 
