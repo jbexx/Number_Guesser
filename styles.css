@@ -2,7 +2,7 @@
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 body {
@@ -11,6 +11,7 @@ body {
 
 header {
   background-color: #404041;
+  text-align: center;
 }
 
 h1 {
@@ -40,6 +41,10 @@ input {
   width: 45%;
 }
 
+.min-max {
+  text-align: center;
+}
+
 .min-max input {
   display: inline-block;
   margin: 5% 1.5%;
@@ -61,6 +66,9 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.get-input {
+  text-align: center;
+}
 button {
   background-color: #929497;
   border: none;
@@ -68,6 +76,7 @@ button {
   color: #fff;
   font-size: 2em;
   margin: 0 1.5%;
+  text-align: center;
   width: 20%;
 }
 
@@ -92,20 +101,26 @@ button:focus {
   outline: none;
 }
 
+
+.give-feedback {
+  margin-top: 5%;
+  text-align: center;
+}
+
 p {
   color: #404041;
   font-size: 2.5em;
   margin: 0;
 }
 
-.give-feedback {
-  margin-top: 5%;
-}
-
 h2 {
   color: #eb008b;
   font-size: 10em;
   margin: 1%;
+}
+
+.reset {
+  text-align: center;
 }
 
 .reset button {
